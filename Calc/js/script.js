@@ -1,7 +1,6 @@
 const previousOperationsText = document.querySelector('#previous-operation')
 const currentOperationsText = document.querySelector('#current-operation')
 const buttons = document.querySelectorAll('#buttons-container button')
-//console.log(buttons);
 
 class Calculator {
   constructor(previousOperationsText, currentOperationsText) {
@@ -10,9 +9,9 @@ class Calculator {
     this.currentOperation = ''
   }
 
-  //adiciona digit visor screen
+  // Adiciona digito ao visor
   addDigit(digit) {
-    //Points limit
+    // Tratativa para apenas um ponto
     if (digit === '.' && this.currentOperationsText.innerText.includes('.')) {
       return
     }
@@ -24,7 +23,6 @@ class Calculator {
   processOperation(operation) {
     if (this.currentOperationsText.innerText === '') {
       if (this.previousOperationsText.innerText !== '' && operation !== 'C') {
-        //ChangeOperation
         this.changeOperations(operation)
       }
       return
@@ -34,6 +32,7 @@ class Calculator {
     const previous = +this.previousOperationsText.innerText.split(' ')[0]
     const current = +this.currentOperationsText.innerText
 
+    // Operações básicas da calculadora
     switch (operation) {
       case '+':
         operationValue = previous + current
@@ -81,7 +80,7 @@ class Calculator {
         operationValue = current
       }
 
-      // Add current and to previous
+      // View das operações
       this.previousOperationsText.innerText = `${operationValue} ${operation}`
       this.currentOperationsText.innerText = ''
     }
@@ -99,7 +98,7 @@ class Calculator {
   processDeleteOperator() {
     this.currentOperationsText.innerText = 
       this.currentOperationsText.innerText.slice(0, -1);
-  }D:\Cursos e Estudos\Gama Academy\React - Acate\Calculadora\index.html
+  }
 
   processClearCurrentOperation(){
     this.currentOperationsText.innerText = '';

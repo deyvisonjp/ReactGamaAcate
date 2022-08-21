@@ -15,7 +15,7 @@ body {
 }
 
 hr {
-  border-bottom: 1px solid #df6c00;
+  border-bottom: 1px solid #2778fe;
 }
 
 #grid-calculator {
@@ -86,9 +86,9 @@ hr {
 }
 
 #buttons-container #equal-button {
-  background-color: #f39e66;
+  background-color: #7caffe;
 }
 
 #buttons-container #equal-button:hover {
-  background-color: #df6c00;
+  background-color: #2778fe;
 }
