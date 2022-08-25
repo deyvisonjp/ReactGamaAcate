@@ -6,19 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desafio Prático - API Correios</title>
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <script src="js/script.js" defer></script>
 </head>
 
 <body>
-  <h1>Consulta CEP - Desafio Gama Academy by Acate</h1>
+  <div class="jumbotron">
+    <h1 class="display-4">Consulta CEP - Desafio Gama Academy by Acate</h1>
 
-  <label for="cepPesquisado">Entre com o CEP a ser pesquisado: </label>
-  <input type="text" id="cepPesquisado" maxlength="8">
-  <button onclick="consultaCep()">Pesquisar</button>
+    <div class="form-group">
+      <label for="cepPesquisado">Entre com o CEP a ser pesquisado</label>
+      <input type="text" id="cepPesquisado" maxlength="8">
+      <button onclick="consultaCep()" class="btn btn-primary">Pesquisar</button>
+    </div>
 
-  <div id="retornoCepPesquisado">
-    <h2>Resultado da consulta</h2>
+    <div class="card">
+      <h2 class="display-4">Resultado da consulta</h2>
+      <div class="card-body" id="retornoCepPesquisado">
+        <!-- Aqui entra o resultado -->
+      </div>
+    </div>
   </div>
 </body>
 
