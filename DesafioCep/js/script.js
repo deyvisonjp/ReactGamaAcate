@@ -8,12 +8,20 @@ function consultaCep() {
 
   fetch(url).then(function(response){
     response.json().then(mostrarEndereco);
-    // response.json().then(function(data){
-    //   console.log(data)
-    //   mostrarEndereco(data)
-    //})
-    //.catch(err => console.log("Erro: " + err, message))
   });
+
+  fetch(url)
+  .then(function(response){
+    if (!response.ok) throw new Error('Erro ao executar a requisição');
+    console.log(response.ok);
+    return response.json();
+  })
+  .then(function(data){
+    console.log(data.localidade);
+  })
+  .catch(function(error){
+    console.log(error)
+  })
 
   //Fetch Exemplo 
   // fetch(url, {
