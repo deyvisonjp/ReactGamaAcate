@@ -3,13 +3,13 @@
 * {
   margin: 0;
   padding: 5;
-  font-family: 'Courier New', Courier, monospace;
-  color: #333;
+  font-family: cursive;
+  color: #102f5e;
   box-sizing: border-box;
 }
 
 body {
-  background: linear-gradient(to right, #3c3e41, #121316);
+  background: linear-gradient(to right, #6c6c6c, #1a1a1a);
   background-position: center;
   background-size: cover;
 }
@@ -17,7 +17,7 @@ body {
 .container {
   max-width: 50%;
   margin: 3rem auto 0;
-  background-color: #ffffff;
+  background-color: #9035e0;
   padding: 1.5rem;
   border-radius: 15px;
 }
@@ -26,27 +26,29 @@ body {
   text-align: left;
   padding: 0 1rem 1rem;
   border-bottom: 1px solid #ccc;
-  text-shadow: 1px 1px 1px rgb(176, 219, 255);
+  text-shadow: 1px 1px 1px #102f5e;
 }
 
 h1 {
   font-size: 1.5em;
   font-weight: 500;
   font-family: 'Permanent Marker', cursive;
+  color: #fff;
 }
 
 p.title {
-  font-size: .6em;
+  font-size: .8em;
   font-weight: 300;
   font-family: 'Permanent Marker', cursive;
   padding-bottom: 1em;
+  color: #fff;
 }
 
 button {
   background-color: aliceblue;
-  color: #101bb1;
-  border: 2px solid #101bb1;
-  padding: .4rem .6rem;
+  color: #102f5e;
+  border: 2px solid #68de5a;
+  padding: 0.4rem 0.6rem;
   font-size: 1rem;
   cursor: pointer;
   display: flex;

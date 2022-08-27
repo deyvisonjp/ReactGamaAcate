@@ -1,41 +1,52 @@
-//Variáveis Globais
-const nomeTodoInput = document.querySelector("#nomeTarefa");
-const insereToDoForm = document.querySelector("#insereToDo");
-const toDoListOutput = document.querySelector("#todoList");
+// Variáveis Globais
+const todoForm = document.querySelector("#todo-form");
+const todoNovaTarefa = document.querySelector("#todo-input");
+const todoList = document.querySelector("#todo-list");
+const editForm = document.querySelector("#edit-form");
+const editInput = document.querySelector("#edit-input");
+const cancelForm = document.querySelector("#cancel-edit-btn");
 
-let listaToDo = [];
-let edit = false;
-let selectIndex = null;
+// Funções
+const saveTodo = (tarefa) => {
+  const todo = document.createElement("div")
+  todo.classList.add("todo");
+  
+  const tituloTodo = document.createElement("h3");
+  tituloTodo.innerText = tarefa;
+  todo.appendChild(tituloTodo);
 
-function start() {
-  insereToDoForm.addEventListener("submit", handleSubmitToDo);
-  getTodoListFromLocalStorage();
-  renderTodoList();
-  nomeTodoInput.focus();
+  const doneBtn = document.createElement("button");
+  doneBtn.classList.add("finish-todo");
+  doneBtn.innerHTML = '<i class="fa-solid fa-check"></i>'
+  todo.appendChild(doneBtn);
+
+  const editBtn = document.createElement("button");
+  editBtn.classList.add("edit-todo");
+  editBtn.innerHTML = '<i class="fa-solid fa-pen"></i>'
+  todo.appendChild(editBtn);
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete-todo");
+  deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>'
+  todo.appendChild(deleteBtn);
+
+  todoList.appendChild(todo);
+  todoNovaTarefa.value = "";
+  todoNovaTarefa.focus();
+
+  console.log(todo);
+
 }
 
-function handleSubmitTodo(event) {
-  event.preventDefault();
-  nomeTodoInput.focus();
-  const nomeToDo = nomeTodoInput.value.trim();
-  console.log(nomeToDo);
-  if (!nomeToDo) {
-    clearInput();
-    return;
+// Eventos
+todoForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const inputTarefa = todoNovaTarefa.value;
+  
+  if (inputTarefa) {
+    saveTodo(inputTarefa);
   }
-  if (isEditMode) {
-    handleUpdateTodo(nomeToDo);
-  } else {
-    handleAddTodo(nomeToDo);
-  }
-  clearInput();
-  renderTodoList();
-}
 
-function toggleTodoUpdateMode(event) {
-  const itemToUpdate = Number(event.currentTarget.id.split("-")[1]);
-  nomeTodoInput.value = allTodoList[itemToUpdate].title;
-  selectedIndex = itemToUpdate;
-  isEditMode = true;
-  nomeTodoInput.focus();
-}
+});
+
