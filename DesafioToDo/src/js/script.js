@@ -4,7 +4,9 @@ const todoNovaTarefa = document.querySelector("#todo-input");
 const todoList = document.querySelector("#todo-list");
 const editForm = document.querySelector("#edit-form");
 const editInput = document.querySelector("#edit-input");
-const cancelForm = document.querySelector("#cancel-edit-btn");
+const cancelEditBtn = document.querySelector("#cancel-edit-btn");
+
+let oldInputValue;
 
 // Funções
 const saveTodo = (tarefa) => {
@@ -35,10 +37,17 @@ const saveTodo = (tarefa) => {
   todoNovaTarefa.focus();
 
   console.log(todo);
+}
 
+const toggleForms = () => {
+  editForm.classList.toggle("hide");
+  todoForm.classList.toggle("hide");
+  todoList.classList.toggle("hide");
+  console.log("Editando Tarefas")
 }
 
 // Eventos
+// Nova Tarefa
 todoForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -47,6 +56,37 @@ todoForm.addEventListener("submit", (e) => {
   if (inputTarefa) {
     saveTodo(inputTarefa);
   }
+});
 
+// Edição das tarefas
+document.addEventListener("click", (e) => {
+  const targetClick = e.target;
+  const parentClick = targetClick.closest("div"); // Pega o elemento mais próximo (el pai, nesse caso o div 'todo')
+  let todoTitle;
+
+  if(parentClick && parentClick.querySelector("h3")){
+    todoTitle = parentClick.querySelector("h3").innerText;
+  }
+
+  if (targetClick.classList.contains("finish-todo")) {
+    //console.log("Terminou a tarefa");
+    parentClick.classList.toggle("done")
+  }
+
+  if (targetClick.classList.contains("edit-todo")) {
+    toggleForms();
+
+    editInput.value = todoTitle;
+    oldInputValue.value = todoTitle;
+  }
+
+  if (targetClick.classList.contains("delete-todo")) {
+    parentClick.remove();
+  }
+});
+
+cancelEditBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  toggleForms();
 });
 

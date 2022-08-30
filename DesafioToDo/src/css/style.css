@@ -36,6 +36,10 @@ h1 {
   color: #fff;
 }
 
+p {
+  color: #fff;
+}
+
 p.title {
   font-size: .8em;
   font-weight: 300;
@@ -123,6 +127,12 @@ hide {
   width: 65%;
   display: flex;
   flex-direction: column;
+  color: #fff;
+}
+
+#search h3,
+#filter h3 {
+  color: #fff;
 }
 
 #search form {
@@ -157,6 +167,11 @@ hide {
 .todo h3 {
   flex: 1;
   font-size: 0.9rem;
+  color: #68de5a;
+  font-size: medium;
+  font-weight: 300;
+  font-family: 'Permanent Marker', cursive;
+
 }
 
 .todo button {
@@ -168,7 +183,10 @@ hide {
 }
 
 .done h3 {
-  color: #fff;
   text-decoration: line-through;
   font-style: italic;
+}
+
+.hide {
+  display: none;
 }
